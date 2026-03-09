@@ -1652,6 +1652,32 @@ footer {
     max-width: 260px;
   }
 }
+
+
+.particle {
+  position: fixed;
+  top: -60px;              /* start above screen */
+  pointer-events: none;
+  white-space: nowrap;
+  animation-name: freefall;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  color: #ffb300;
+  font-weight: bold;
+  text-shadow: 0 0 6px rgba(255,160,0,0.6);
+}
+
+@keyframes freefall {
+  0% {
+    transform: translateY(-60px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(110vh); /* fall to bottom */
+    opacity: 0.9;
+  }
+}
 </style>
 </head>
 <body>
@@ -2413,23 +2439,42 @@ bellOverlay.addEventListener("click", () => {
 
 });
 // ===== FLOATING PARTICLES =====
+// ===== FLOATING PARTICLES =====
 const particlesContainer = document.getElementById('particlesContainer');
-const particleSymbols = ['ॐ', 'श्री राम ', 'जय राम','🚩', '✨', 'राम', 'बजरंगबली की जय', '🕉️', '☀️'];
+
+const particleSymbols = [
+'ॐ','श्री राम','जय राम','🚩','✨','राम','बजरंगबली की जय','🕉️','☀️'
+];
 
 function createParticle() {
+
   const particle = document.createElement('div');
+
   particle.classList.add('particle');
-  particle.textContent = particleSymbols[Math.floor(Math.random() * particleSymbols.length)];
+
+  particle.textContent =
+  particleSymbols[Math.floor(Math.random() * particleSymbols.length)];
+
   particle.style.left = Math.random() * 100 + 'vw';
+
+  particle.style.top = "-60px";
+
   particle.style.fontSize = (0.7 + Math.random() * 1.2) + 'rem';
+
   particle.style.animationDuration = (6 + Math.random() * 8) + 's';
-  particle.style.animationDelay = Math.random() * 5 + 's';
+
+  particle.style.animationDelay = Math.random() * 3 + 's';
+
   particlesContainer.appendChild(particle);
+
   setTimeout(() => particle.remove(), 15000);
 }
 
 setInterval(createParticle, 1200);
-for (let i = 0; i < 8; i++) setTimeout(createParticle, i * 600);
+
+for (let i = 0; i < 8; i++) {
+  setTimeout(createParticle, i * 600);
+}
 
 // ===== ANIMATED MANTRA =====
 const mantras = [
