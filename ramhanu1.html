@@ -1,0 +1,2642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sri Anjaneya Swamy Temple – Moosapet, Hyderabad</title>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&family=Cinzel+Decorative:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+/* ===== CSS RESET & BASE ===== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --saffron: #FF6F00;
+  --deep-saffron: #E65100;
+  --gold: #FFD700;
+  --dark-gold: #B8860B;
+  --maroon: #800000;
+  --dark-maroon: #4A0000;
+  --cream: #FFF8E1;
+  --dark-bg: #1a0a00;
+  --temple-red: #C62828;
+  --divine-orange: #FF8F00;
+  --warm-white: #FFF3E0;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--dark-bg);
+  color: var(--cream);
+  overflow-x: hidden;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--dark-maroon); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 4px; }
+
+/* ===== MOVING BANNER ===== */
+.moving-banner {
+  background: linear-gradient(90deg, var(--maroon), var(--deep-saffron), var(--maroon));
+  padding: 8px 0;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10000;
+  border-bottom: 2px solid var(--gold);
+}
+
+.moving-banner .banner-text {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scrollBanner 20s linear infinite;
+  font-family: 'Tiro Devanagari Hindi', serif;
+  font-size: 1.1rem;
+  color: var(--gold);
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+@keyframes scrollBanner {
+  0% { transform: translateX(100vw); }
+  100% { transform: translateX(-100%); }
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  position: fixed;
+  top: 36px;
+  width: 100%;
+  z-index: 9999;
+  transition: all 0.4s ease;
+  padding: 12px 0;
+}
+
+.navbar.scrolled {
+  background: rgba(26, 10, 0, 0.95);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 4px 30px rgba(255, 107, 0, 0.2);
+  border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.nav-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.nav-logo .om-symbol {
+  font-size: 2.2rem;
+  color: var(--gold);
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+.nav-logo span {
+  font-family: 'Cinzel Decorative', cursive;
+  color: var(--gold);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 5px;
+}
+
+.nav-links a {
+  color: var(--cream);
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-links a:hover, .nav-links a.active {
+  color: var(--gold);
+  background: rgba(255, 215, 0, 0.1);
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  z-index: 10001;
+}
+
+.hamburger span {
+  width: 28px;
+  height: 3px;
+  background: var(--gold);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+
+/* ===== PARTICLES ===== */
+.particles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  font-size: 1rem;
+  opacity: 0;
+  animation: floatParticle 8s ease-in-out infinite;
+  color: var(--gold);
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+@keyframes floatParticle {
+  0% { opacity: 0; transform: translateY(100vh) rotate(0deg); }
+  10% { opacity: 0.7; }
+  90% { opacity: 0.7; }
+  100% { opacity: 0; transform: translateY(-10vh) rotate(360deg); }
+}
+
+/* ===== DIYA DECORATIONS ===== */
+.diya-border {
+  height: 4px;
+  background: linear-gradient(90deg, 
+    transparent, var(--gold), var(--saffron), var(--gold), 
+    var(--saffron), var(--gold), transparent);
+  position: relative;
+  overflow: hidden;
+}
+
+.diya-border::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: linear-gradient(90deg, 
+    transparent, rgba(255,215,0,0.5), transparent);
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { transform: translateX(-100%); }
+  50% { transform: translateX(100%); }
+}
+
+/* ===== GLOWING EFFECTS ===== */
+@keyframes glowPulse {
+  0%, 100% { text-shadow: 0 0 10px rgba(255, 215, 0, 0.4), 0 0 20px rgba(255, 215, 0, 0.2); }
+  50% { text-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 215, 0, 0.4), 0 0 60px rgba(255, 215, 0, 0.2); }
+}
+
+@keyframes divaFlame {
+  0%, 100% { text-shadow: 0 0 10px #ff6600, 0 0 20px #ff9900, 0 0 30px #ffcc00; transform: scale(1); }
+  25% { text-shadow: 0 0 15px #ff6600, 0 0 25px #ff9900, 0 0 40px #ffcc00; transform: scale(1.05) rotate(-2deg); }
+  50% { text-shadow: 0 0 20px #ff6600, 0 0 35px #ff9900, 0 0 50px #ffcc00; transform: scale(1.1); }
+  75% { text-shadow: 0 0 15px #ff6600, 0 0 25px #ff9900, 0 0 40px #ffcc00; transform: scale(1.05) rotate(2deg); }
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding-top: 80px;
+  background: 
+    radial-gradient(ellipse at center top, rgba(255, 107, 0, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse at center, rgba(128, 0, 0, 0.1) 0%, transparent 70%),
+    linear-gradient(180deg, #1a0500 0%, #2d0a00 30%, #1a0a00 100%);
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(255, 165, 0, 0.08) 0%, transparent 70%);
+  animation: divineLight 5s ease-in-out infinite;
+}
+
+@keyframes divineLight {
+  0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.5; }
+  50% { transform: translateX(-50%) scale(1.3); opacity: 1; }
+}
+
+.hero-content {
+  text-align: center;
+  z-index: 2;
+  padding: 20px;
+  max-width: 900px;
+}
+
+.hero-mandala {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 20px;
+  position: relative;
+}
+
+.hero-mandala .hanuman-icon {
+  font-size: 7rem;
+  display: block;
+  animation: divaFlame 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 30px rgba(255, 165, 0, 0.6));
+}
+
+.hero-mandala::before {
+  content: '';
+  position: absolute;
+  inset: -20px;
+  border: 3px solid rgba(255, 215, 0, 0.3);
+  border-radius: 50%;
+  animation: rotateMandala 20s linear infinite;
+}
+
+.hero-mandala::after {
+  content: '';
+  position: absolute;
+  inset: -40px;
+  border: 2px dashed rgba(255, 215, 0, 0.15);
+  border-radius: 50%;
+  animation: rotateMandala 30s linear infinite reverse;
+}
+
+@keyframes rotateMandala {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.hero h1 {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 3rem;
+  color: var(--gold);
+  margin-bottom: 15px;
+  line-height: 1.3;
+  text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+  animation: fadeInUp 1s ease-out;
+}
+
+.hero .tagline {
+  font-family: 'Tiro Devanagari Hindi', serif;
+  font-size: 1.3rem;
+  color: var(--warm-white);
+  margin-bottom: 30px;
+  opacity: 0.9;
+  animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+.animated-mantra {
+  font-family: 'Tiro Devanagari Hindi', serif;
+  font-size: 2rem;
+  color: var(--saffron);
+  margin-bottom: 30px;
+  min-height: 50px;
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+.btn-divine {
+  padding: 14px 35px;
+  border: 2px solid var(--gold);
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 107, 0, 0.15));
+  color: var(--gold);
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 0.95rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-divine::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 215, 0, 0.2);
+  border-radius: 50%;
+  transition: all 0.5s ease;
+  transform: translate(-50%, -50%);
+}
+
+.btn-divine:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn-divine:hover {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.3), rgba(255, 107, 0, 0.3));
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn-divine.filled {
+  background: linear-gradient(135deg, var(--saffron), var(--deep-saffron));
+  border-color: var(--saffron);
+  color: white;
+}
+
+.btn-divine.filled:hover {
+  background: linear-gradient(135deg, var(--deep-saffron), var(--maroon));
+}
+
+/* ===== SECTION STYLES ===== */
+section {
+  padding: 80px 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-header .decorative-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.decorative-line span {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold));
+}
+
+.decorative-line span:last-child {
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+
+.decorative-line .diya-icon {
+  font-size: 1.8rem;
+  animation: divaFlame 2s ease-in-out infinite;
+}
+
+.section-header h2 {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 2.5rem;
+  color: var(--gold);
+  margin-bottom: 10px;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+}
+
+.section-header .subtitle {
+  font-family: 'Tiro Devanagari Hindi', serif;
+  color: var(--saffron);
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+/* ===== ABOUT SECTION ===== */
+.about-section {
+  background: linear-gradient(180deg, var(--dark-bg) 0%, #2d0a00 50%, var(--dark-bg) 100%);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.about-image {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(255, 107, 0, 0.15);
+  border: 2px solid rgba(255, 215, 0, 0.2);
+}
+
+.about-image .temple-img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #3d1200, #1a0800);
+  position: relative;
+}
+
+.temple-img-placeholder {
+  width: 100%;
+  height: 450px;
+  background: linear-gradient(135deg, #3d1200 0%, #6b2000 50%, #3d1200 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.temple-img-placeholder .big-icon {
+  font-size: 6rem;
+  animation: divaFlame 3s ease-in-out infinite;
+}
+
+.temple-img-placeholder p {
+  font-family: 'Cinzel Decorative', cursive;
+  color: var(--gold);
+  font-size: 1.2rem;
+}
+
+.about-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 2px solid rgba(255, 215, 0, 0.1);
+  border-radius: 20px;
+  pointer-events: none;
+}
+
+.about-text h3 {
+  font-family: 'Cinzel Decorative', cursive;
+  color: var(--gold);
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  line-height: 1.8;
+  color: var(--warm-white);
+  opacity: 0.85;
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+}
+
+.about-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.about-feature {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 15px;
+  background: rgba(255, 215, 0, 0.05);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+.about-feature .feat-icon {
+  font-size: 1.5rem;
+}
+
+.about-feature span {
+  font-size: 0.85rem;
+  color: var(--cream);
+}
+
+/* ===== TIMINGS SECTION ===== */
+.timings-section {
+  background: 
+    radial-gradient(ellipse at top, rgba(255, 107, 0, 0.08) 0%, transparent 50%),
+    var(--dark-bg);
+}
+
+.timings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.timing-card {
+  background: linear-gradient(145deg, rgba(128, 0, 0, 0.2), rgba(26, 10, 0, 0.8));
+  border: 1px solid rgba(255, 215, 0, 0.15);
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.timing-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--saffron), var(--gold));
+}
+
+.timing-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(255, 107, 0, 0.15);
+  border-color: rgba(255, 215, 0, 0.3);
+}
+
+.timing-card .card-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.timing-card h3 {
+  font-family: 'Cinzel Decorative', cursive;
+  color: var(--gold);
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+.timing-card .time-slot {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.08);
+  font-size: 0.9rem;
+}
+
+.timing-card .time-slot:last-child {
+  border-bottom: none;
+}
+
+.timing-card .time-slot .label {
+  color: var(--warm-white);
+  opacity: 0.7;
+}
+
+.timing-card .time-slot .time {
+  color: var(--saffron);
+  font-weight: 600;
+}
+
+/* ===== SEVAS SECTION ===== */
+.sevas-section {
+  background: linear-gradient(180deg, var(--dark-bg) 0%, #2d0a00 50%, var(--dark-bg) 100%);
+}
+
+.sevas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.seva-card {
+  background: linear-gradient(145deg, rgba(128, 0, 0, 0.15), rgba(26, 10, 0, 0.9));
+  border: 1px solid rgba(255, 215, 0, 0.12);
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.seva-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--saffron), var(--gold), var(--saffron));
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.seva-card:hover::after {
+  transform: scaleX(1);
+}
+
+.seva-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(255, 107, 0, 0.12);
+}
+
+.seva-card .seva-icon {
+  font-size: 3.5rem;
+  margin-bottom: 15px;
+  display: block;
+  animation: divaFlame 3s ease-in-out infinite;
+}
+
+.seva-card h3 {
+  font-family: 'Cinzel Decorative', cursive;
+  color: var(--gold);
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+}
+
+.seva-card p {
+  color: var(--warm-white);
+  opacity: 0.7;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.seva-price {
+  display: inline-block;
+  padding: 6px 20px;
+  background: rgba(255, 215, 0, 0.1);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 20px;
+  color: var(--gold);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* ===== FESTIVALS SECTION ===== */
+.festivals-section {
+  background: 
+    radial-gradient(ellipse at bottom, rgba(255, 107, 0, 0.08) 0%, transparent 50%),
+    var(--dark-bg);
+}
+
+.festivals-timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.festivals-timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--gold), var(--saffron), var(--gold));
+  opacity: 0.3;
+}
+
+.festival-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.festival-item:nth-child(odd) {
+  flex-direction: row-reverse;
+}
+
+.festival-item:nth-child(odd) .festival-content {
+  text-align: right;
+  margin-right: 40px;
+}
+
+.festival-item:nth-child(even) .festival-content {
+  margin-left: 40px;
+}
+
+.festival-dot {
+  width: 20px;
+  height: 20px;
+  background: var(--gold);
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+  z-index: 2;
+}
+
+.festival-content {
+  flex: 1;
+  background: linear-gradient(145deg, rgba(128, 0, 0, 0.15), rgba(26, 10, 0, 0.8));
+  border: 1px solid rgba(255, 215, 0, 0.12);
+  border-radius: 15px;
+  padding: 25px;
+  transition: all 0.3s ease;
+}
+
+.festival-content:hover {
+  border-color: rgba(255, 215, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(255, 107, 0, 0.1);
+}
+
+.festival-content .fest-icon {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.festival-content h3 {
+  font-family: 'Cinzel Decorative', cursive;
+  color: var(--gold);
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.festival-content p {
+  color: var(--warm-white);
+  opacity: 0.7;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.festival-content .fest-date {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 4px 14px;
+  background: rgba(255, 107, 0, 0.15);
+  border-radius: 15px;
+  color: var(--saffron);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* ===== GALLERY SECTION ===== */
+.gallery-section {
+  background: linear-gradient(180deg, var(--dark-bg) 0%, #2d0a00 50%, var(--dark-bg) 100%);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid rgba(255, 215, 0, 0.1);
+  transition: all 0.4s ease;
+  aspect-ratio: 4/3;
+}
+
+.gallery-item:hover {
+  transform: scale(1.03);
+  border-color: rgba(255, 215, 0, 0.3);
+  box-shadow: 0 15px 40px rgba(255, 107, 0, 0.15);
+}
+
+.gallery-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #3d1200, #2d0a00);
+}
+
+.gallery-placeholder .gal-icon {
+  font-size: 3rem;
+}
+
+.gallery-placeholder p {
+  color: var(--gold);
+  font-size: 0.85rem;
+  font-family: 'Cinzel Decorative', cursive;
+}
+
+.gallery-item .gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-overlay p {
+  color: var(--gold);
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 0.9rem;
+}
+
+/* ===== LIGHTBOX ===== */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 100000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox-content {
+  text-align: center;
+  max-width: 700px;
+}
+
+.lightbox-content .lb-icon {
+  font-size: 8rem;
+  margin-bottom: 20px;
+  animation: divaFlame 3s ease-in-out infinite;
+}
+
+.lightbox-content h3 {
+  font-family: 'Cinzel Decorative', cursive;
+  color: var(--gold);
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.lightbox-content p {
+  color: var(--warm-white);
+  opacity: 0.7;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  font-size: 2rem;
+  color: var(--gold);
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: transform 0.3s ease;
+}
+
+.lightbox-close:hover {
+  transform: rotate(90deg);
+}
+
+/* ===== DEVOTION / VIDEO SECTION ===== */
+.devotion-section {
+  background: 
+    radial-gradient(ellipse at center, rgba(255, 107, 0, 0.06) 0%, transparent 50%),
+    var(--dark-bg);
+}
+
+.devotion-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.video-wrapper {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 2px solid rgba(255, 215, 0, 0.2);
+  box-shadow: 0 20px 60px rgba(255, 107, 0, 0.1);
+}
+
+.video-wrapper iframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+  display: block;
+}
+
+.bhajans-list {
+  list-style: none;
+}
+
+.bhajans-list li {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 20px;
+  background: linear-gradient(145deg, rgba(128, 0, 0, 0.1), rgba(26, 10, 0, 0.6));
+  border: 1px solid rgba(255, 215, 0, 0.08);
+  border-radius: 12px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.bhajans-list li:hover {
+  background: linear-gradient(145deg, rgba(128, 0, 0, 0.2), rgba(26, 10, 0, 0.8));
+  border-color: rgba(255, 215, 0, 0.2);
+  transform: translateX(5px);
+}
+
+.bhajans-list .bhajan-icon {
+  font-size: 1.5rem;
+}
+
+.bhajans-list .bhajan-info h4 {
+  color: var(--gold);
+  font-size: 0.95rem;
+  font-family: 'Cinzel Decorative', cursive;
+}
+
+.bhajans-list .bhajan-info p {
+  color: var(--warm-white);
+  opacity: 0.6;
+  font-size: 0.8rem;
+}
+
+/* ===== DONATE SECTION ===== */
+.donate-section {
+  background: linear-gradient(180deg, var(--dark-bg) 0%, #2d0a00 50%, var(--dark-bg) 100%);
+}
+
+.donate-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.donate-info {
+  text-align: center;
+}
+
+.donate-info .donate-icon {
+  font-size: 5rem;
+  margin-bottom: 20px;
+  display: block;
+  animation: divaFlame 3s ease-in-out infinite;
+}
+
+.donate-info h3 {
+  font-family: 'Cinzel Decorative', cursive;
+  color: var(--gold);
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.donate-info p {
+  color: var(--warm-white);
+  opacity: 0.7;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.donate-amounts {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.donate-amt {
+  padding: 10px 25px;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-radius: 25px;
+  background: rgba(255, 215, 0, 0.05);
+  color: var(--gold);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.donate-amt:hover, .donate-amt.selected {
+  background: rgba(255, 215, 0, 0.2);
+  border-color: var(--gold);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+}
+
+/* ===== SEVA BOOKING FORM ===== */
+.booking-form {
+  background: linear-gradient(145deg, rgba(128, 0, 0, 0.15), rgba(26, 10, 0, 0.8));
+  border: 1px solid rgba(255, 215, 0, 0.15);
+  border-radius: 20px;
+  padding: 35px;
+}
+
+.booking-form h3 {
+  font-family: 'Cinzel Decorative', cursive;
+  color: var(--gold);
+  font-size: 1.3rem;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  color: var(--warm-white);
+  margin-bottom: 6px;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 18px;
+  background: rgba(255, 215, 0, 0.05);
+  border: 1px solid rgba(255, 215, 0, 0.15);
+  border-radius: 10px;
+  color: var(--cream);
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.1);
+}
+
+.form-group select option {
+  background: #2d0a00;
+  color: var(--cream);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, var(--saffron), var(--deep-saffron));
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 5px;
+}
+
+.btn-submit:hover {
+  background: linear-gradient(135deg, var(--deep-saffron), var(--maroon));
+  box-shadow: 0 10px 30px rgba(255, 107, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+/* ===== MAP & VISITOR SECTION ===== */
+.map-section {
+  background: var(--dark-bg);
+}
+
+.map-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.map-wrapper {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 2px solid rgba(255, 215, 0, 0.15);
+  box-shadow: 0 20px 60px rgba(255, 107, 0, 0.1);
+}
+
+.map-wrapper iframe {
+  width: 100%;
+  height: 400px;
+  display: block;
+}
+
+.visitor-info {
+  text-align: center;
+}
+
+.visitor-counter {
+  background: linear-gradient(145deg, rgba(128, 0, 0, 0.2), rgba(26, 10, 0, 0.8));
+  border: 1px solid rgba(255, 215, 0, 0.15);
+  border-radius: 20px;
+  padding: 35px;
+  margin-bottom: 30px;
+}
+
+.visitor-counter h3 {
+  font-family: 'Cinzel Decorative', cursive;
+  color: var(--gold);
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+.counter-display {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.counter-digit {
+  width: 50px;
+  height: 65px;
+  background: linear-gradient(145deg, rgba(255, 107, 0, 0.2), rgba(128, 0, 0, 0.3));
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 2rem;
+  color: var(--gold);
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+}
+
+.quick-links {
+  background: linear-gradient(145deg, rgba(128, 0, 0, 0.2), rgba(26, 10, 0, 0.8));
+  border: 1px solid rgba(255, 215, 0, 0.15);
+  border-radius: 20px;
+  padding: 30px;
+}
+
+.quick-links h3 {
+  font-family: 'Cinzel Decorative', cursive;
+  color: var(--gold);
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+.quick-link-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.06);
+  color: var(--warm-white);
+  font-size: 0.9rem;
+}
+
+.quick-link-item:last-child {
+  border-bottom: none;
+}
+
+.quick-link-item .ql-icon {
+  font-size: 1.3rem;
+}
+
+/* ===== CONTACT SECTION ===== */
+.contact-section {
+  background: linear-gradient(180deg, var(--dark-bg) 0%, #2d0a00 50%, var(--dark-bg) 100%);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.contact-card {
+  background: linear-gradient(145deg, rgba(128, 0, 0, 0.15), rgba(26, 10, 0, 0.8));
+  border: 1px solid rgba(255, 215, 0, 0.12);
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 215, 0, 0.25);
+  box-shadow: 0 15px 40px rgba(255, 107, 0, 0.1);
+}
+
+.contact-card .contact-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.contact-card h3 {
+  font-family: 'Cinzel Decorative', cursive;
+  color: var(--gold);
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.contact-card p {
+  color: var(--warm-white);
+  opacity: 0.7;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.contact-card a {
+  color: var(--saffron);
+  text-decoration: none;
+}
+
+.contact-card a:hover {
+  text-decoration: underline;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: linear-gradient(180deg, var(--dark-bg), #0a0300);
+  padding: 50px 20px 20px;
+  text-align: center;
+  border-top: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer-om {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  display: block;
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+.footer-quote {
+  font-family: 'Tiro Devanagari Hindi', serif;
+  color: var(--saffron);
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  font-style: italic;
+}
+
+.footer-quote-en {
+  color: var(--warm-white);
+  opacity: 0.5;
+  font-size: 0.85rem;
+  margin-bottom: 25px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.social-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(255, 215, 0, 0.05);
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  background: rgba(255, 215, 0, 0.15);
+  border-color: var(--gold);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 20px rgba(255, 215, 0, 0.2);
+}
+
+.footer-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 20px auto;
+}
+
+.footer-credit {
+  color: var(--warm-white);
+  opacity: 0.4;
+  font-size: 0.8rem;
+  margin-bottom: 5px;
+}
+
+.footer-dev {
+  color: var(--gold);
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.1rem;
+  opacity: 0.7;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.7s ease;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== BELL OVERLAY ===== */
+.bell-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 999999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity 0.8s ease;
+}
+
+.bell-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.bell-overlay .bell-icon {
+  font-size: 6rem;
+  animation: bellSwing 1s ease-in-out infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes bellSwing {
+  0%, 100% { transform: rotate(-10deg); }
+  50% { transform: rotate(10deg); }
+}
+
+.bell-overlay p {
+  font-family: 'Cinzel Decorative', cursive;
+  color: var(--gold);
+  font-size: 1.5rem;
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+.bell-overlay .click-text {
+  color: var(--warm-white);
+  opacity: 0.5;
+  font-size: 0.9rem;
+  margin-top: 15px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ===== BACK TO TOP ===== */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--saffron), var(--deep-saffron));
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 9998;
+  opacity: 0;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(255, 107, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+}
+
+.back-to-top:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(255, 107, 0, 0.4);
+}
+
+/* ===== SUCCESS MODAL ===== */
+.success-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 100001;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-modal.active {
+  display: flex;
+}
+
+.success-modal-content {
+  background: linear-gradient(145deg, #3d1200, #1a0800);
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  border-radius: 25px;
+  padding: 50px;
+  text-align: center;
+  max-width: 450px;
+  animation: fadeInUp 0.5s ease;
+}
+
+.success-modal-content .success-icon {
+  font-size: 4rem;
+  margin-bottom: 15px;
+  display: block;
+  animation: divaFlame 2s ease-in-out infinite;
+}
+
+.success-modal-content h3 {
+  font-family: 'Cinzel Decorative', cursive;
+  color: var(--gold);
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+}
+
+.success-modal-content p {
+  color: var(--warm-white);
+  opacity: 0.7;
+  margin-bottom: 25px;
+}
+
+.success-modal-content button {
+  padding: 12px 30px;
+  background: linear-gradient(135deg, var(--saffron), var(--deep-saffron));
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.success-modal-content button:hover {
+  transform: scale(1.05);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+  .about-grid,
+  .devotion-grid,
+  .donate-grid,
+  .map-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .section-header h2 {
+    font-size: 2rem;
+  }
+
+  .festivals-timeline::before {
+    left: 20px;
+  }
+
+  .festival-item,
+  .festival-item:nth-child(odd) {
+    flex-direction: column;
+  }
+
+  .festival-dot {
+    left: 20px;
+    top: 0;
+  }
+
+  .festival-content,
+  .festival-item:nth-child(odd) .festival-content {
+    margin-left: 50px;
+    margin-right: 0;
+    text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background: rgba(26, 10, 0, 0.98);
+    flex-direction: column;
+    padding: 100px 30px 30px;
+    transition: right 0.4s ease;
+    border-left: 1px solid rgba(255, 215, 0, 0.1);
+    gap: 5px;
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .nav-links a {
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 10px;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .hero h1 {
+    font-size: 1.7rem;
+  }
+
+  .hero .tagline {
+    font-size: 1rem;
+  }
+
+  .animated-mantra {
+    font-size: 1.4rem;
+  }
+
+  .hero-mandala .hanuman-icon {
+    font-size: 5rem;
+  }
+
+  .section-header h2 {
+    font-size: 1.6rem;
+  }
+
+  .about-features {
+    grid-template-columns: 1fr;
+  }
+
+  .counter-digit {
+    width: 40px;
+    height: 52px;
+    font-size: 1.5rem;
+  }
+
+  section {
+    padding: 60px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.4rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn-divine {
+    width: 100%;
+    max-width: 260px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- BELL OVERLAY -->
+<div class="bell-overlay" id="bellOverlay">
+  <div class="bell-icon">🔔</div>
+  <p>🙏 Welcome to Sri Anjaneya Swamy Temple 🙏</p>
+  <span class="click-text">~ Click anywhere to enter the divine abode ~</span>
+</div>
+
+<!-- FLOATING PARTICLES -->
+<div class="particles-container" id="particlesContainer"></div>
+
+<!-- MOVING BANNER -->
+<div class="moving-banner">
+  <div class="banner-text">
+    🙏 जय श्री राम 🙏 || जय हनुमान 🙏 || राम राम राम राम || श्री अंजनेय स्वामी की जय 🙏 || ॐ हनुमते नमः || राम राम राम 🙏 || Jai Shri Ram || Jai Hanuman 🙏 || Sri Anjaneya Swamy Temple – Moosapet, Hyderabad || 🙏 जय श्री राम 🙏 || जय हनुमान 🙏 || राम राम राम राम || ॐ हनुमते नमः 🙏
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="#hero" class="nav-logo">
+      <span class="om-symbol">🙏</span>
+      <span>Sri Anjaneya Swamy</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hero" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#timings">Timings</a></li>
+      <li><a href="#sevas">Sevas</a></li>
+      <li><a href="#festivals">Festivals</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#devotion">Devotion</a></li>
+      <li><a href="#donate">Donate</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <div class="hero-mandala">
+      <span class="hanuman-icon">🙏</span>
+    </div>
+    <h1>Sri Anjaneya Swamy Temple</h1>
+    <p class="tagline">Moosapet, Hyderabad – A Sacred Place of Devotion, Strength & Blessings of Lord Hanuman</p>
+    <div class="animated-mantra" id="animatedMantra"></div>
+    <div class="hero-buttons">
+      <a href="#timings" class="btn-divine filled">🕉️ Darshan Timings</a>
+      <a href="#sevas" class="btn-divine">🪔 Book Seva Online</a>
+      <a href="#donate" class="btn-divine">🙏 Donate / Annadanam</a>
+    </div>
+  </div>
+</section>
+<div class="diya-border"></div>
+
+<!-- ABOUT SECTION -->
+<section class="about-section" id="about">
+  <div class="section-container">
+    <div class="section-header animate-on-scroll">
+      <div class="decorative-line">
+        <span></span>
+        <div class="diya-icon">🪔</div>
+        <span></span>
+      </div>
+      <h2>About The Temple</h2>
+      <p class="subtitle">|| श्री अंजनेय स्वामी मंदिर ||</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-image animate-on-scroll">
+        <div class="temple-img-placeholder">
+          <span class="big-icon">🛕</span>
+          <p>Sri Anjaneya Swamy Temple</p>
+          <p style="font-size:0.85rem; opacity:0.6;">Moosapet, Hyderabad</p>
+        </div>
+      </div>
+      <div class="about-text animate-on-scroll">
+        <h3>🙏 A Divine Abode of Lord Hanuman</h3>
+        <p>
+          Sri Anjaneya Swamy Temple, nestled in the heart of Moosapet, Hyderabad, stands as a beacon of devotion, faith, and spiritual strength. This sacred temple is dedicated to Lord Hanuman (Anjaneya Swamy), the epitome of devotion, courage, and selfless service.
+        </p>
+        <p>
+          Lord Hanuman, the ardent devotee of Lord Sri Rama, is revered across India as the remover of obstacles, the bestower of strength, and the protector of devotees. The deity at this temple is believed to be Swayambhu (self-manifested) and carries immense spiritual energy.
+        </p>
+        <p>
+          The temple attracts thousands of devotees, especially on Tuesdays and Saturdays, which are considered the most auspicious days for Hanuman worship. The divine atmosphere, the rhythmic chanting of Hanuman Chalisa, and the fragrance of sindoor and camphor create an unforgettable spiritual experience.
+        </p>
+        <div class="about-features">
+          <div class="about-feature">
+            <span class="feat-icon">🏛️</span>
+            <span>Ancient Temple Heritage</span>
+          </div>
+          <div class="about-feature">
+            <span class="feat-icon">🙏</span>
+            <span>Swayambhu Deity</span>
+          </div>
+          <div class="about-feature">
+            <span class="feat-icon">📿</span>
+            <span>Daily Abhishekam</span>
+          </div>
+          <div class="about-feature">
+            <span class="feat-icon">🍲</span>
+            <span>Free Annadanam</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="diya-border"></div>
+
+<!-- TIMINGS SECTION -->
+<section class="timings-section" id="timings">
+  <div class="section-container">
+    <div class="section-header animate-on-scroll">
+      <div class="decorative-line">
+        <span></span>
+        <div class="diya-icon">🕉️</div>
+        <span></span>
+      </div>
+      <h2>Temple Timings</h2>
+      <p class="subtitle">|| दर्शन समय ||</p>
+    </div>
+    <div class="timings-grid">
+      <div class="timing-card animate-on-scroll">
+        <span class="card-icon">🌅</span>
+        <h3>Morning Darshan</h3>
+        <div class="time-slot">
+          <span class="label">Temple Opens</span>
+          <span class="time">5:00 AM</span>
+        </div>
+        <div class="time-slot">
+          <span class="label">Suprabhatam</span>
+          <span class="time">5:30 AM</span>
+        </div>
+        <div class="time-slot">
+          <span class="label">Abhishekam</span>
+          <span class="time">6:00 AM</span>
+        </div>
+        <div class="time-slot">
+          <span class="label">Morning Aarti</span>
+          <span class="time">7:00 AM</span>
+        </div>
+        <div class="time-slot">
+          <span class="label">Darshan</span>
+          <span class="time">5:30 AM – 12:00 PM</span>
+        </div>
+      </div>
+      <div class="timing-card animate-on-scroll">
+        <span class="card-icon">🌇</span>
+        <h3>Evening Darshan</h3>
+        <div class="time-slot">
+          <span class="label">Temple Reopens</span>
+          <span class="time">4:00 PM</span>
+        </div>
+        <div class="time-slot">
+          <span class="label">Evening Aarti</span>
+          <span class="time">6:30 PM</span>
+        </div>
+        <div class="time-slot">
+          <span class="label">Darshan</span>
+          <span class="time">4:00 PM – 8:30 PM</span>
+        </div>
+        <div class="time-slot">
+          <span class="label">Temple Closes</span>
+          <span class="time">9:00 PM</span>
+        </div>
+      </div>
+      <div class="timing-card animate-on-scroll">
+        <span class="card-icon">⭐</span>
+        <h3>Special Days</h3>
+        <div class="time-slot">
+          <span class="label">Tuesday Special Pooja</span>
+          <span class="time">6:00 PM</span>
+        </div>
+        <div class="time-slot">
+          <span class="label">Saturday Hanuman Pooja</span>
+          <span class="time">6:30 PM</span>
+        </div>
+        <div class="time-slot">
+          <span class="label">Full Moon Darshan</span>
+          <span class="time">5:00 AM – 10:00 PM</span>
+        </div>
+        <div class="time-slot">
+          <span class="label">Festival Days</span>
+          <span class="time">4:00 AM – 11:00 PM</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="diya-border"></div>
+
+<!-- SEVAS SECTION -->
+<section class="sevas-section" id="sevas">
+  <div class="section-container">
+    <div class="section-header animate-on-scroll">
+      <div class="decorative-line">
+        <span></span>
+        <div class="diya-icon">🪔</div>
+        <span></span>
+      </div>
+      <h2>Sevas & Poojas</h2>
+      <p class="subtitle">|| सेवा एवं पूजा ||</p>
+    </div>
+    <div class="sevas-grid">
+      <div class="seva-card animate-on-scroll">
+        <span class="seva-icon">🔱</span>
+        <h3>Hanuman Abhishekam</h3>
+        <p>Sacred bathing ceremony of Lord Hanuman with milk, curd, honey, and holy water. Performed daily during morning hours.</p>
+        <span class="seva-price">₹ 501</span>
+      </div>
+      <div class="seva-card animate-on-scroll">
+        <span class="seva-icon">🔴</span>
+        <h3>Sindoor Archana</h3>
+        <p>Offering sacred vermillion (sindoor) to Lord Hanuman with 108 names chanting. Believed to fulfill wishes and remove obstacles.</p>
+        <span class="seva-price">₹ 201</span>
+      </div>
+      <div class="seva-card animate-on-scroll">
+        <span class="seva-icon">📿</span>
+        <h3>Hanuman Chalisa Parayanam</h3>
+        <p>Complete recitation of Hanuman Chalisa by temple priests for the welfare and protection of the devotee and family.</p>
+        <span class="seva-price">₹ 301</span>
+      </div>
+      <div class="seva-card animate-on-scroll">
+        <span class="seva-icon">🪔</span>
+        <h3>Special Saturday Pooja</h3>
+        <p>Grand pooja performed every Saturday with special offerings, garlands, and prasadam distribution to all devotees.</p>
+        <span class="seva-price">₹ 1,001</span>
+      </div>
+      <div class="seva-card animate-on-scroll">
+        <span class="seva-icon">🥥</span>
+        <h3>Naivedyam Seva</h3>
+        <p>Offering of sacred food (Naivedyam) to Lord Hanuman including laddoo, fruits, and other traditional prasadam items.</p>
+        <span class="seva-price">₹ 251</span>
+      </div>
+      <div class="seva-card animate-on-scroll">
+        <span class="seva-icon">🌺</span>
+        <h3>Pushpa Archana</h3>
+        <p>Offering of flowers with sacred chanting of 108 or 1008 names of Lord Hanuman for divine blessings and peace.</p>
+        <span class="seva-price">₹ 151</span>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="diya-border"></div>
+
+<!-- FESTIVALS SECTION -->
+<section class="festivals-section" id="festivals">
+  <div class="section-container">
+    <div class="section-header animate-on-scroll">
+      <div class="decorative-line">
+        <span></span>
+        <div class="diya-icon">🎆</div>
+        <span></span>
+      </div>
+      <h2>Festivals & Events</h2>
+      <p class="subtitle">|| उत्सव एवं कार्यक्रम ||</p>
+    </div>
+    <div class="festivals-timeline">
+      <div class="festival-item animate-on-scroll">
+        <div class="festival-dot"></div>
+        <div class="festival-content">
+          <span class="fest-icon">🐒</span>
+          <h3>Hanuman Jayanti</h3>
+          <p>The most grand celebration at the temple. Special abhishekam, 24-hour bhajans, annadanam for thousands of devotees, and magnificent decoration of the deity.</p>
+          <span class="fest-date">Chaitra Purnima (March/April)</span>
+        </div>
+      </div>
+      <div class="festival-item animate-on-scroll">
+        <div class="festival-dot"></div>
+        <div class="festival-content">
+          <span class="fest-icon">🏹</span>
+          <h3>Ram Navami</h3>
+          <p>Celebration of Lord Sri Rama's birth with special Sita-Rama Kalyanam, processions, and devotional programs throughout the day.</p>
+          <span class="fest-date">Chaitra Shukla Navami (March/April)</span>
+        </div>
+      </div>
+      <div class="festival-item animate-on-scroll">
+        <div class="festival-dot"></div>
+        <div class="festival-content">
+          <span class="fest-icon">🪔</span>
+          <h3>Deepavali</h3>
+          <p>Festival of lights celebrated with thousands of diyas, fireworks, special pooja, and prasadam distribution. Temple illuminated beautifully.</p>
+          <span class="fest-date">Kartik Amavasya (October/November)</span>
+        </div>
+      </div>
+      <div class="festival-item animate-on-scroll">
+        <div class="festival-dot"></div>
+        <div class="festival-content">
+          <span class="fest-icon">🎶</span>
+          <h3>Weekly Bhajans & Annadanam</h3>
+          <p>Every Tuesday and Saturday, special bhajan sessions and free food distribution (Annadanam) for all visitors and devotees.</p>
+          <span class="fest-date">Every Tuesday & Saturday</span>
+        </div>
+      </div>
+      <div class="festival-item animate-on-scroll">
+        <div class="festival-dot"></div>
+        <div class="festival-content">
+          <span class="fest-icon">🎪</span>
+          <h3>Annual Brahmotsavam</h3>
+          <p>A grand 5-day annual festival featuring special rituals, cultural programs, processions, and community celebrations.</p>
+          <span class="fest-date">January/February</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="diya-border"></div>
+
+<!-- GALLERY SECTION -->
+<section class="gallery-section" id="gallery">
+  <div class="section-container">
+    <div class="section-header animate-on-scroll">
+      <div class="decorative-line">
+        <span></span>
+        <div class="diya-icon">📸</div>
+        <span></span>
+      </div>
+      <h2>Temple Gallery</h2>
+      <p class="subtitle">|| मंदिर चित्रशाला ||</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item animate-on-scroll" onclick="openLightbox(0)">
+        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #5d1a00, #3d0f00);">
+          <span class="gal-icon">🛕</span>
+          <p>Temple Entrance</p>
+        </div>
+        <div class="gallery-overlay"><p>Grand Temple Entrance - Moosapet</p></div>
+      </div>
+      <div class="gallery-item animate-on-scroll" onclick="openLightbox(1)">
+        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #4d1500, #2d0a00);">
+          <span class="gal-icon">🙏</span>
+          <p>Sri Anjaneya Idol</p>
+        </div>
+        <div class="gallery-overlay"><p>Divine Sri Anjaneya Swamy Idol</p></div>
+      </div>
+      <div class="gallery-item animate-on-scroll" onclick="openLightbox(2)">
+        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #6b2000, #3d1200);">
+          <span class="gal-icon">🔱</span>
+          <p>Abhishekam</p>
+        </div>
+        <div class="gallery-overlay"><p>Sacred Abhishekam Ceremony</p></div>
+      </div>
+      <div class="gallery-item animate-on-scroll" onclick="openLightbox(3)">
+        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #5a1800, #330e00);">
+          <span class="gal-icon">🪔</span>
+          <p>Deepotsavam</p>
+        </div>
+        <div class="gallery-overlay"><p>Deepotsavam Festival Celebrations</p></div>
+      </div>
+      <div class="gallery-item animate-on-scroll" onclick="openLightbox(4)">
+        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #4a1300, #260800);">
+          <span class="gal-icon">🎶</span>
+          <p>Bhajan Session</p>
+        </div>
+        <div class="gallery-overlay"><p>Devotional Bhajan Session</p></div>
+      </div>
+      <div class="gallery-item animate-on-scroll" onclick="openLightbox(5)">
+        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #5d1a00, #3d0f00);">
+          <span class="gal-icon">🍲</span>
+          <p>Annadanam</p>
+        </div>
+        <div class="gallery-overlay"><p>Free Annadanam for Devotees</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <div class="lightbox-content" id="lightboxContent"></div>
+</div>
+<div class="diya-border"></div>
+
+<!-- LIVE DEVOTION SECTION -->
+<section class="devotion-section" id="devotion">
+  <div class="section-container">
+    <div class="section-header animate-on-scroll">
+      <div class="decorative-line">
+        <span></span>
+        <div class="diya-icon">🎵</div>
+        <span></span>
+      </div>
+      <h2>Live Devotion</h2>
+      <p class="subtitle">|| भक्ति संगीत ||</p>
+    </div>
+    <div class="devotion-grid">
+      <div class="animate-on-scroll">
+        <h3 style="font-family:'Cinzel Decorative',cursive; color:var(--gold); margin-bottom:20px; font-size:1.2rem;">🎬 Hanuman Chalisa</h3>
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/AETFvQonfhc" title="Hanuman Chalisa" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+      <div class="animate-on-scroll">
+        <h3 style="font-family:'Cinzel Decorative',cursive; color:var(--gold); margin-bottom:20px; font-size:1.2rem;">🎶 Sacred Bhajans</h3>
+        <ul class="bhajans-list">
+          <li>
+            <span class="bhajan-icon">🎵</span>
+            <div class="bhajan-info">
+              <h4>Hanuman Chalisa</h4>
+              <p>श्री हनुमान चालीसा – Complete 40 verses</p>
+            </div>
+          </li>
+          <li>
+            <span class="bhajan-icon">🎵</span>
+            <div class="bhajan-info">
+              <h4>Bajrang Baan</h4>
+              <p>बजरंग बाण – Powerful Hanuman Stotram</p>
+            </div>
+          </li>
+          <li>
+            <span class="bhajan-icon">🎵</span>
+            <div class="bhajan-info">
+              <h4>Hanuman Ashtak</h4>
+              <p>हनुमान अष्टक – Eight verses of Lord Hanuman</p>
+            </div>
+          </li>
+          <li>
+            <span class="bhajan-icon">🎵</span>
+            <div class="bhajan-info">
+              <h4>Sankat Mochan</h4>
+              <p>संकटमोचन हनुमान अष्टक</p>
+            </div>
+          </li>
+          <li>
+            <span class="bhajan-icon">🎵</span>
+            <div class="bhajan-info">
+              <h4>Ram Dhun</h4>
+              <p>श्री राम जय राम जय जय राम – Ram Dhun</p>
+            </div>
+          </li>
+          <li>
+            <span class="bhajan-icon">🎵</span>
+            <div class="bhajan-info">
+              <h4>Sunderkand Path</h4>
+              <p>सुंदरकाण्ड – Complete recitation</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="diya-border"></div>
+
+<!-- DONATE / ANNADANAM SECTION -->
+<section class="donate-section" id="donate">
+  <div class="section-container">
+    <div class="section-header animate-on-scroll">
+      <div class="decorative-line">
+        <span></span>
+        <div class="diya-icon">💝</div>
+        <span></span>
+      </div>
+      <h2>Donate & Seva Booking</h2>
+      <p class="subtitle">|| दान एवं सेवा ||</p>
+    </div>
+    <div class="donate-grid">
+      <div class="donate-info animate-on-scroll">
+        <span class="donate-icon">🙏</span>
+        <h3>Support Annadanam & Temple Activities</h3>
+        <p>
+          Your generous donations help us serve thousands of devotees through free Annadanam (food distribution), temple maintenance, festival celebrations, and community welfare programs. Every contribution, big or small, is a step towards divine service.
+        </p>
+        <p style="color: var(--saffron); font-family: 'Tiro Devanagari Hindi', serif; font-size: 1.1rem; margin-bottom: 20px;">
+          "अन्नदानं परं दानम्" — Annadanam is the greatest donation
+        </p>
+        <h4 style="color: var(--gold); font-family: 'Cinzel Decorative', cursive; margin-bottom: 15px;">Select Donation Amount</h4>
+        <div class="donate-amounts">
+          <div class="donate-amt" onclick="selectDonation(this, 101)">₹101</div>
+          <div class="donate-amt" onclick="selectDonation(this, 251)">₹251</div>
+          <div class="donate-amt" onclick="selectDonation(this, 501)">₹501</div>
+          <div class="donate-amt" onclick="selectDonation(this, 1001)">₹1,001</div>
+          <div class="donate-amt" onclick="selectDonation(this, 2001)">₹2,001</div>
+          <div class="donate-amt" onclick="selectDonation(this, 5001)">₹5,001</div>
+        </div>
+        <br>
+        <a href="#contact" class="btn-divine filled" style="margin-top:15px;">Contact for Donation</a>
+      </div>
+      <div class="booking-form animate-on-scroll">
+        <h3>🪔 Online Seva Booking</h3>
+        <form id="sevaForm" onsubmit="submitSevaForm(event)">
+          <div class="form-group">
+            <label>Full Name (Devotee) *</label>
+            <input type="text" placeholder="Enter your name" required>
+          </div>
+          <div class="form-group">
+            <label>Phone Number *</label>
+            <input type="tel" placeholder="Enter phone number" required>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="Enter email address">
+          </div>
+          <div class="form-group">
+            <label>Select Seva *</label>
+            <select required>
+              <option value="">-- Choose Seva --</option>
+              <option value="abhishekam">Hanuman Abhishekam – ₹501</option>
+              <option value="sindoor">Sindoor Archana – ₹201</option>
+              <option value="chalisa">Hanuman Chalisa Parayanam – ₹301</option>
+              <option value="saturday">Special Saturday Pooja – ₹1,001</option>
+              <option value="naivedyam">Naivedyam Seva – ₹251</option>
+              <option value="pushpa">Pushpa Archana – ₹151</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Preferred Date</label>
+            <input type="date">
+          </div>
+          <div class="form-group">
+            <label>Gothram / Star (Nakshatram)</label>
+            <input type="text" placeholder="Enter gothram and nakshatram">
+          </div>
+          <div class="form-group">
+            <label>Special Requests / Sankalpa</label>
+            <textarea placeholder="Any special wishes or prayers..."></textarea>
+          </div>
+          <button type="submit" class="btn-submit">🙏 Book Seva</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="diya-border"></div>
+
+<!-- MAP & VISITOR SECTION -->
+<section class="map-section" id="map">
+  <div class="section-container">
+    <div class="section-header animate-on-scroll">
+      <div class="decorative-line">
+        <span></span>
+        <div class="diya-icon">📍</div>
+        <span></span>
+      </div>
+      <h2>Visit Us</h2>
+      <p class="subtitle">|| मंदिर दर्शन ||</p>
+    </div>
+    <div class="map-grid">
+      <div class="map-wrapper animate-on-scroll">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.8!2d78.427!3d17.468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDI4JzA0LjgiTiA3OMKwMjUnMzcuMiJF!5e0!3m2!1sen!2sin!4v1690000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="visitor-info animate-on-scroll">
+        <div class="visitor-counter">
+          <h3>🙏 Devotee Visitor Counter</h3>
+          <div class="counter-display" id="visitorCounter">
+            <div class="counter-digit">0</div>
+            <div class="counter-digit">2</div>
+            <div class="counter-digit">8</div>
+            <div class="counter-digit">4</div>
+            <div class="counter-digit">7</div>
+            <div class="counter-digit">6</div>
+          </div>
+          <p style="margin-top:15px; font-size: 0.8rem; opacity: 0.5;">Total blessings received</p>
+        </div>
+        <div class="quick-links">
+          <h3>🛕 Temple Information</h3>
+          <div class="quick-link-item">
+            <span class="ql-icon">📍</span>
+            <span>Moosapet, Kukatpally, Hyderabad, Telangana – 500018</span>
+          </div>
+          <div class="quick-link-item">
+            <span class="ql-icon">🚇</span>
+            <span>Nearest Metro: Moosapet Metro Station</span>
+          </div>
+          <div class="quick-link-item">
+            <span class="ql-icon">🚌</span>
+            <span>TSRTC Bus Stop: Moosapet X Roads</span>
+          </div>
+          <div class="quick-link-item">
+            <span class="ql-icon">🅿️</span>
+            <span>Free parking available for devotees</span>
+          </div>
+          <div class="quick-link-item">
+            <span class="ql-icon">♿</span>
+            <span>Wheelchair accessible temple premises</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="diya-border"></div>
+
+<!-- CONTACT SECTION -->
+<section class="contact-section" id="contact">
+  <div class="section-container">
+    <div class="section-header animate-on-scroll">
+      <div class="decorative-line">
+        <span></span>
+        <div class="diya-icon">📞</div>
+        <span></span>
+      </div>
+      <h2>Contact Us</h2>
+      <p class="subtitle">|| संपर्क करें ||</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card animate-on-scroll">
+        <span class="contact-icon">📍</span>
+        <h3>Temple Address</h3>
+        <p>Sri Anjaneya Swamy Temple,<br>Moosapet, Kukatpally,<br>Hyderabad, Telangana – 500018,<br>India</p>
+      </div>
+      <div class="contact-card animate-on-scroll">
+        <span class="contact-icon">📞</span>
+        <h3>Phone Number</h3>
+        <p><a href="tel:+914023050000">+91 40 2305 0000</a></p>
+        <p><a href="tel:+919876543210">+91 98765 43210</a></p>
+        <p style="margin-top:8px; font-size:0.75rem;">(Available 6 AM – 9 PM)</p>
+      </div>
+      <div class="contact-card animate-on-scroll">
+        <span class="contact-icon">✉️</span>
+        <h3>Email Address</h3>
+        <p><a href="mailto:info@srianjaneyaswamy.org">info@srianjaneyaswamy.org</a></p>
+        <p><a href="mailto:sevas@srianjaneyaswamy.org">sevas@srianjaneyaswamy.org</a></p>
+      </div>
+      <div class="contact-card animate-on-scroll">
+        <span class="contact-icon">🗺️</span>
+        <h3>How to Reach</h3>
+        <p>By Metro: Moosapet Station<br>By Bus: Moosapet X Roads<br>By Auto/Cab: Search "Anjaneya Swamy Temple Moosapet"</p>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="diya-border"></div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-content">
+    <span class="footer-om">🕉️</span>
+    <p class="footer-quote">"मनोजवं मारुततुल्यवेगं जितेन्द्रियं बुद्धिमतां वरिष्ठम्"</p>
+    <p class="footer-quote-en">"Swift as mind, fast as wind, master of senses, and best among the wise"</p>
+    <div class="social-icons">
+      <a href="#" class="social-icon" title="Facebook">📘</a>
+      <a href="#" class="social-icon" title="Instagram">📷</a>
+      <a href="#" class="social-icon" title="YouTube">▶️</a>
+      <a href="#" class="social-icon" title="Twitter">🐦</a>
+      <a href="#" class="social-icon" title="WhatsApp">💬</a>
+    </div>
+    <div class="footer-divider"></div>
+    <p class="footer-credit">© 2025 Sri Anjaneya Swamy Temple, Moosapet, Hyderabad. All rights reserved.</p>
+    <p class="footer-dev">Developed with devotion by Abhishek Shankar 🙏</p>
+  </div>
+</footer>
+
+<!-- BACK TO TOP -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">⬆</button>
+
+<!-- SUCCESS MODAL -->
+<div class="success-modal" id="successModal">
+  <div class="success-modal-content">
+    <span class="success-icon">✅</span>
+    <h3>Seva Booked Successfully!</h3>
+    <p>🙏 Jai Hanuman! Your seva has been registered. Temple will contact you for confirmation. May Lord Hanuman bless you and your family.</p>
+    <button onclick="closeSuccessModal()">🙏 Jai Shri Ram</button>
+  </div>
+</div>
+
+<script>
+// ===== BELL OVERLAY =====
+// ===== SUPER TEMPLE BELL =====
+const bellOverlay = document.getElementById("bellOverlay");
+
+bellOverlay.addEventListener("click", () => {
+
+  bellOverlay.classList.add("hidden");
+
+  try {
+
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    const now = audioCtx.currentTime;
+
+    function playTempleBell(timeOffset = 0) {
+
+      const masterGain = audioCtx.createGain();
+      masterGain.connect(audioCtx.destination);
+
+      masterGain.gain.setValueAtTime(0.9, now + timeOffset);
+      masterGain.gain.exponentialRampToValueAtTime(0.0001, now + timeOffset + 7);
+
+      // Temple bell overtone frequencies
+      const bellFrequencies = [
+        210,
+        320,
+        540,
+        800,
+        1070,
+        1480,
+        2010,
+        2780
+      ];
+
+      bellFrequencies.forEach((freq, i) => {
+
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+
+        osc.type = "sine";
+
+        // Slight detuning for metal realism
+        osc.frequency.setValueAtTime(
+          freq + (Math.random() * 8 - 4),
+          now + timeOffset
+        );
+
+        gain.gain.setValueAtTime(0.6 / (i + 1), now + timeOffset);
+        gain.gain.exponentialRampToValueAtTime(
+          0.0001,
+          now + timeOffset + 6
+        );
+
+        osc.connect(gain);
+        gain.connect(masterGain);
+
+        osc.start(now + timeOffset);
+        osc.stop(now + timeOffset + 6);
+
+      });
+
+      // Strike sound (metal hit)
+      const noiseBuffer = audioCtx.createBuffer(1, audioCtx.sampleRate * 0.2, audioCtx.sampleRate);
+      const data = noiseBuffer.getChannelData(0);
+
+      for (let i = 0; i < data.length; i++) {
+        data[i] = Math.random() * 2 - 1;
+      }
+
+      const noise = audioCtx.createBufferSource();
+      noise.buffer = noiseBuffer;
+
+      const noiseGain = audioCtx.createGain();
+      noiseGain.gain.setValueAtTime(0.5, now + timeOffset);
+      noiseGain.gain.exponentialRampToValueAtTime(0.001, now + timeOffset + 0.2);
+
+      noise.connect(noiseGain);
+      noiseGain.connect(masterGain);
+
+      noise.start(now + timeOffset);
+
+    }
+
+    // First bell
+    playTempleBell(0);
+
+    // Second bell strike
+    playTempleBell(0.9);
+
+  } catch (e) {}
+
+});
+// ===== FLOATING PARTICLES =====
+const particlesContainer = document.getElementById('particlesContainer');
+const particleSymbols = ['ॐ', 'श्री राम ', 'जय राम','🚩', '✨', 'राम', 'बजरंगबली की जय', '🕉️', '☀️'];
+
+function createParticle() {
+  const particle = document.createElement('div');
+  particle.classList.add('particle');
+  particle.textContent = particleSymbols[Math.floor(Math.random() * particleSymbols.length)];
+  particle.style.left = Math.random() * 100 + 'vw';
+  particle.style.fontSize = (0.7 + Math.random() * 1.2) + 'rem';
+  particle.style.animationDuration = (6 + Math.random() * 8) + 's';
+  particle.style.animationDelay = Math.random() * 5 + 's';
+  particlesContainer.appendChild(particle);
+  setTimeout(() => particle.remove(), 15000);
+}
+
+setInterval(createParticle, 1200);
+for (let i = 0; i < 8; i++) setTimeout(createParticle, i * 600);
+
+// ===== ANIMATED MANTRA =====
+const mantras = [
+  'जय हनुमान ज्ञान गुण सागर',
+  '🙏 Jai Shri Ram 🙏',
+  'ॐ हनुमते नमः',
+  'श्री राम जय राम जय जय राम',
+  '🙏 Jai Hanuman 🙏',
+  'बजरंगबली की जय',
+  'संकट मोचन हनुमान',
+  'राम लक्ष्मण जानकी, जय बोलो हनुमान की',
+  'मनोजवं मारुततुल्यवेगम्'
+];
+
+let mantraIndex = 0;
+const mantraEl = document.getElementById('animatedMantra');
+
+function typeMantra() {
+  const mantra = mantras[mantraIndex];
+  mantraEl.textContent = '';
+  let charIndex = 0;
+  const typeInterval = setInterval(() => {
+    if (charIndex < mantra.length) {
+      mantraEl.textContent += mantra[charIndex];
+      charIndex++;
+    } else {
+      clearInterval(typeInterval);
+      setTimeout(() => {
+        mantraIndex = (mantraIndex + 1) % mantras.length;
+        typeMantra();
+      }, 2500);
+    }
+  }, 80);
+}
+typeMantra();
+
+// ===== NAVBAR SCROLL =====
+const navbar = document.getElementById('navbar');
+const backToTop = document.getElementById('backToTop');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 100) {
+    navbar.classList.add('scrolled');
+    backToTop.classList.add('visible');
+  } else {
+    navbar.classList.remove('scrolled');
+    backToTop.classList.remove('visible');
+  }
+  updateActiveNav();
+});
+
+// ===== ACTIVE NAV LINK =====
+function updateActiveNav() {
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  let current = '';
+
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 150;
+    if (window.scrollY >= sectionTop) {
+      current = section.getAttribute('id');
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) {
+      link.classList.add('active');
+    }
+  });
+}
+
+// ===== HAMBURGER MENU =====
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  navLinks.classList.toggle('active');
+});
+
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    navLinks.classList.remove('active');
+  });
+});
+
+// ===== SCROLL ANIMATIONS =====
+const observerOptions = {
+  threshold: 0.15,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.animate-on-scroll').forEach(el => {
+  observer.observe(el);
+});
+
+// ===== LIGHTBOX =====
+const galleryData = [
+  { icon: '🛕', title: 'Temple Entrance', desc: 'The grand entrance of Sri Anjaneya Swamy Temple welcomes thousands of devotees from across Hyderabad.' },
+  { icon: '🙏', title: 'Sri Anjaneya Swamy Idol', desc: 'The magnificent idol of Lord Hanuman adorned with sindoor, garlands and divine ornaments.' },
+  { icon: '🔱', title: 'Sacred Abhishekam', desc: 'Holy Abhishekam performed with milk, curd, honey and sacred water by temple priests.' },
+  { icon: '🪔', title: 'Deepotsavam', desc: 'The temple illuminated with thousands of oil lamps during the grand Deepotsavam festival.' },
+  { icon: '🎶', title: 'Bhajan Session', desc: 'Devotional bhajan sessions held every Tuesday and Saturday with hundreds of devotees.' },
+  { icon: '🍲', title: 'Annadanam', desc: 'Free food distribution (Annadanam) serving thousands of devotees and visitors daily.' }
+];
+
+function openLightbox(index) {
+  const lb = document.getElementById('lightbox');
+  const content = document.getElementById('lightboxContent');
+  const data = galleryData[index];
+  content.innerHTML = `
+    <div class="lb-icon">${data.icon}</div>
+    <h3>${data.title}</h3>
+    <p>${data.desc}</p>
+  `;
+  lb.classList.add('active');
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+}
+
+document.getElementById('lightbox').addEventListener('click', (e) => {
+  if (e.target === document.getElementById('lightbox')) closeLightbox();
+});
+
+// ===== DONATE SELECTION =====
+function selectDonation(el, amt) {
+  document.querySelectorAll('.donate-amt').forEach(d => d.classList.remove('selected'));
+  el.classList.add('selected');
+}
+
+// ===== SEVA FORM =====
+function submitSevaForm(e) {
+  e.preventDefault();
+  document.getElementById('successModal').classList.add('active');
+  e.target.reset();
+}
+
+function closeSuccessModal() {
+  document.getElementById('successModal').classList.remove('active');
+}
+
+// ===== VISITOR COUNTER ANIMATION =====
+function animateCounter() {
+  const digits = document.querySelectorAll('.counter-digit');
+  let baseNumber = 28476;
+  
+  // Increment over time
+  const storedCount = localStorage.getItem('templeVisitorCount');
+  const storedTime = localStorage.getItem('templeVisitorTime');
+  const now = Date.now();
+  
+  if (storedCount && storedTime) {
+    const elapsed = (now - parseInt(storedTime)) / 1000;
+    baseNumber = parseInt(storedCount) + Math.floor(elapsed / 30);
+  } else {
+    baseNumber = 28476 + Math.floor(Math.random() * 100);
+  }
+  
+  localStorage.setItem('templeVisitorCount', baseNumber);
+  localStorage.setItem('templeVisitorTime', now);
+  
+  const numStr = baseNumber.toString().padStart(6, '0');
+  digits.forEach((digit, i) => {
+    digit.textContent = numStr[i];
+  });
+  
+  // Live increment
+  setInterval(() => {
+    baseNumber++;
+    const numStr = baseNumber.toString().padStart(6, '0');
+    digits.forEach((digit, i) => {
+      if (digit.textContent !== numStr[i]) {
+        digit.style.transform = 'translateY(-5px)';
+        digit.style.opacity = '0.5';
+        setTimeout(() => {
+          digit.textContent = numStr[i];
+          digit.style.transform = 'translateY(0)';
+          digit.style.opacity = '1';
+        }, 200);
+      }
+    });
+    localStorage.setItem('templeVisitorCount', baseNumber);
+    localStorage.setItem('templeVisitorTime', Date.now());
+  }, 15000 + Math.random() * 10000);
+}
+
+animateCounter();
+
+// ===== KEYBOARD ESCAPE =====
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeLightbox();
+    closeSuccessModal();
+  }
+});
+</script>
+</body>
+</html>
